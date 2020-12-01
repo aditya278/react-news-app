@@ -15,11 +15,15 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    async function fetchCountry() {
+      const res1 = await axios.get("http://ip-api.com/json");
+      console.log(res1);
+      setCountryCd(res1.data.countryCode);
+    }
+
     async function fetchData() {
       setLoading(true);
-      const res1 = await axios.get("http://ip-api.com/json");
-      setCountryCd(res1.data.countryCode)
-      console.log(countryCd);
+      fetchCountry();
       const url = 'http://newsapi.org/v2/top-headlines?' +
                   `country=${countryCd}&` +
                   'apiKey=a48cfcb6549847c285555f8d280213b9';
@@ -29,7 +33,7 @@ function App() {
     }
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [countryCd]);
   
   return (
     <div class="container">

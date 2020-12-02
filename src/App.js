@@ -16,31 +16,41 @@ function App() {
 
   useEffect(() => {
     async function fetchCountry() {
-      const res1 = await axios.get("http://ip-api.com/json");
-      console.log(res1);
-      setCountryCd(res1.data.countryCode);
+      const res = await axios.get("http://ip-api.com/json");
+      console.log(res.data.countryCd);
+      setCountryCd(res.data.countryCode);
     }
+    fetchCountry();
+  }, []);
 
+  useEffect(() => {
     async function fetchData() {
-      setLoading(true);
-      fetchCountry();
-      const url = 'http://newsapi.org/v2/top-headlines?' +
-                  `country=${countryCd}&` +
-                  'apiKey=a48cfcb6549847c285555f8d280213b9';
-      const res2 = await axios.get(url);
-      setArticles(res2.data.articles);
-      setLoading(false);
+      try {
+        setLoading(true);
+        console.log("Country Code is: " + countryCd);
+        const url = 'http://newsapi.org/v2/top-headlines?' +
+                    `country=${countryCd}&` +
+                    'apiKey=a48cfcb6549847c285555f8d280213b9';
+        const res2 = await axios.get(url);
+        console.log(res2.data.articles);
+        setArticles(res2.data.articles);
+        setLoading(false);
+      }
+      catch(err) {
+        console.log(err.message);
+      }
     }
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [countryCd]);
   
   return (
-    <div class="container">
+    <div className="container">
       <Header />
       <Navbar />
-      <br />
-      <HeadlinePosts articles={articles.slice(0,3)} loading={loading}/>
+      <hr />
+      <HeadlinePosts articles={articles.slice(1,4)} loading={loading}/>
+      <hr />
     </div>
   );
 }

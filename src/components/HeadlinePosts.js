@@ -16,7 +16,7 @@ export default function HeadlinePosts({articles, loading}) {
     return (
         <div className="row">
             <div className="col-8 card mb-3 w-75">
-                <img className="card-img-top w-100" src={articles[0].urlToImage} alt={articles[0].source.name} />
+                <img className="card-img-top w-100 pt-2" src={articles[0].urlToImage} alt={articles[0].source.name} />
                 <div className="card-body">
                     <h5 className="card-title">{articles[0].title}</h5>
                     <br />
@@ -25,14 +25,14 @@ export default function HeadlinePosts({articles, loading}) {
                 </div>
             </div>
             <div className="col-4 w-25">
-                <div className="row-6 card mb-3">
+                <div className="row-6 card mb-3 pt-2">
                     <img className="card-img-top w-100" src={articles[1].urlToImage} alt={articles[1].source.name} />
                     <div className="card-body">
                         <h5 className="card-title">{articles[1].title}</h5>
                         <p className="card-text"><small className="text-muted">{convertDate(articles[1].publishedAt)} <b>Source:</b> {articles[1].source.name}</small></p>
                     </div>
                 </div>
-                <div className="row-6 card mb-3">
+                <div className="row-6 card mb-3 pt-2">
                     <img className="card-img-top w-100" src={articles[2].urlToImage} alt={articles[2].source.name} />
                     <div className="card-body">
                         <h5 className="card-title">{articles[2].title}</h5>

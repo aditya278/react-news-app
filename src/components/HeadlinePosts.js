@@ -33,7 +33,7 @@ export default function HeadlinePosts({articles, loading}) {
                     </div>
                 </div>
                 <div className="row-6 card mb-3 pt-2">
-                    <img className="card-img-top w-100" src={articles[2].urlToImage} alt={articles[2].source.name} />
+                    <img className="card-img-top w-100" src={articles[2].urlToImage || `https://source.unsplash.com/100x50/?${articles[2].source.name}`} alt={articles[2].source.name} script={{width : '100%'}} />
                     <div className="card-body">
                         <h5 className="card-title">{articles[2].title}</h5>
                         <p className="card-text"><small className="text-muted">{convertDate(articles[2].publishedAt)} <b>Source:</b>{articles[2].source.name}</small></p>

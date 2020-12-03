@@ -15,26 +15,22 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchCountry() {
-      const res = await axios.get("http://ip-api.com/json");
-      console.log(res.data.countryCd);
-      setCountryCd(res.data.countryCode);
-    }
-    fetchCountry();
-  }, []);
-
-  useEffect(() => {
     async function fetchData() {
       try {
         setLoading(true);
-        console.log("Country Code is: " + countryCd);
-        const url = 'http://newsapi.org/v2/top-headlines?' +
-                    `country=${countryCd}&` +
-                    'apiKey=a48cfcb6549847c285555f8d280213b9';
-        const res2 = await axios.get(url);
-        console.log(res2.data.articles);
-        setArticles(res2.data.articles);
-        setLoading(false);
+        const res = await axios.get("http://ip-api.com/json");
+        setCountryCd(res.data.countryCode);
+
+        if(countryCd !== '') {
+          const url = 'http://newsapi.org/v2/top-headlines?' +
+          `country=${countryCd}&` +
+          'apiKey=a48cfcb6549847c285555f8d280213b9';
+          const res2 = await axios.get(url);
+
+          setArticles(res2.data.articles);
+          setLoading(false);
+        }
+      
       }
       catch(err) {
         console.log(err.message);

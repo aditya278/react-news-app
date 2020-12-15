@@ -40,15 +40,32 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [countryCd]);
 
+  const onTopicSelection = async (topic) => {
+    try {
+      setLoading(true);
+      const url =
+        "http://newsapi.org/v2/everything?" + 
+        `q=${topic}&` + 
+        "sortBy=publishedAt&apiKey=a48cfcb6549847c285555f8d280213b9";
+      const res2 = await axios.get(url);
+
+      setArticles(res2.data.articles);
+      setLoading(false);
+    }
+    catch(err) {
+      console.log(err.message); 
+    }
+  }
+
   return (
     <Router>
       <div className="container">
         <Header />
-        <Navbar />
+        <Navbar onTopicSelection = {onTopicSelection} />
         <hr />
         <Switch>
           <Route exact path="/">
-            <HeadlinePosts articles={articles.slice(0, 3)} loading={loading} />
+            <HeadlinePosts articles={articles} loading={loading} />
           </Route>
         </Switch>
         <hr />

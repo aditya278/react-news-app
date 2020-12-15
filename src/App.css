@@ -131,7 +131,7 @@ a:link {
 }
 
 a:hover {
-  color: red;
+  color: blue;
   background-color: transparent;
   text-decoration: underline;
 }

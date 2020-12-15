@@ -1,21 +1,28 @@
-import React from 'react'
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React from 'react';
 
-export default function Navbar() {
+export default function Navbar({ onTopicSelection }) {
+
+    const onClick = (event) => {
+        event.preventDefault();
+        onTopicSelection(event.target.value);
+    }
+
     return (
         <div className="nav-scroller py-1 mb-2">
             <nav className="nav d-flex justify-content-between">
-                <a className="p-2 text-muted" href="demo">World</a>
-                <a className="p-2 text-muted" href="demo">U.S.</a>
-                <a className="p-2 text-muted" href="demo">Technology</a>
-                <a className="p-2 text-muted" href="demo">Design</a>
-                <a className="p-2 text-muted" href="demo">Culture</a>
-                <a className="p-2 text-muted" href="demo">Business</a>
-                <a className="p-2 text-muted" href="demo">Politics</a>
-                <a className="p-2 text-muted" href="demo">Opinion</a>
-                <a className="p-2 text-muted" href="demo">Science</a>
-                <a className="p-2 text-muted" href="demo">Health</a>
-                <a className="p-2 text-muted" href="demo">Style</a>
-                <a className="p-2 text-muted" href="demo">Travel</a>
+                <button type="button" className="btn btn-white" value="world" onClick={onClick}>World</button>
+                <button type="button" className="btn btn-white" value="Health" onClick={onClick}>Health</button>
+                <button type="button" className="btn btn-white" value="Covid" onClick={onClick}>Covid</button>
+                <button type="button" className="btn btn-white" value="Business" onClick={onClick}>Business</button>
+                <button type="button" className="btn btn-white" value="Technology" onClick={onClick}>Technology</button>
+                <button type="button" className="btn btn-white" value="Politics" onClick={onClick}>Politics</button>
+                <button type="button" className="btn btn-white" value="Science" onClick={onClick}>Science</button>
+                <button type="button" className="btn btn-white" value="Design" onClick={onClick}>Design</button>
+                <button type="button" className="btn btn-white" value="Culture" onClick={onClick}>Culture</button>
+                <button type="button" className="btn btn-white" value="Opinion" onClick={onClick}>Opinion</button>
+                <button type="button" className="btn btn-white" value="Travel" onClick={onClick}>Travel</button>
+                <button type="button" className="btn btn-white" value="Style" onClick={onClick}>Style</button>
             </nav>
         </div>
     )

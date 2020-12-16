@@ -14,11 +14,13 @@ function App() {
   const [countryCd, setCountryCd] = useState("");
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [topic, setTopic] = useState('');
 
   useEffect(() => {
     async function fetchData() {
       try {
         setLoading(true);
+        setTopic('');
         const res = await axios.get("http://ip-api.com/json");
         setCountryCd(res.data.countryCode);
 
@@ -40,12 +42,13 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [countryCd]);
 
-  const onTopicSelection = async (topic) => {
+  const onTopicSelection = async (newTopic) => {
     try {
       setLoading(true);
+      setTopic(newTopic);
       const url =
         "http://newsapi.org/v2/everything?" + 
-        `q=${topic}&` + 
+        `q=${newTopic}&` + 
         "sortBy=publishedAt&apiKey=a48cfcb6549847c285555f8d280213b9";
       const res2 = await axios.get(url);
 
@@ -60,7 +63,7 @@ function App() {
   return (
     <Router>
       <div className="container">
-        <Header onTopicSelection = {onTopicSelection} />
+        <Header topic = {topic} onTopicSelection = {onTopicSelection} />
         <Navbar onTopicSelection = {onTopicSelection} />
         <hr />
         <Switch>
@@ -69,6 +72,12 @@ function App() {
           </Route>
         </Switch>
         <hr />
+        <div className="card">
+          <div class="card-footer bg-light text-muted row flex-nowrap justify-content-between align-items-center">
+            <div>© <a href="www.github.com/aditya278">Aditya Shukla</a></div>
+            <div>Source: <a href="https://newsapi.org/">News API</a></div>
+          </div>
+        </div>
       </div>
     </Router>
   );

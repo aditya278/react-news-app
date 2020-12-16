@@ -11,7 +11,7 @@ export default function Navbar({ onTopicSelection }) {
     return (
         <div className="nav-scroller py-1 mb-2">
             <nav className="nav d-flex justify-content-between">
-                <button type="button" className="btn btn-white" value="world" onClick={onClick}>World</button>
+                <button type="button" className="btn btn-white" value="World" onClick={onClick}>World</button>
                 <button type="button" className="btn btn-white" value="Health" onClick={onClick}>Health</button>
                 <button type="button" className="btn btn-white" value="Covid" onClick={onClick}>Covid</button>
                 <button type="button" className="btn btn-white" value="Business" onClick={onClick}>Business</button>

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-export default function Header( { onTopicSelection } ) {
+export default function Header( { topic, onTopicSelection } ) {
     const [searchText, setSearchText] = useState('');
 
     const onChange = (event) => {
@@ -16,13 +16,15 @@ export default function Header( { onTopicSelection } ) {
         <header className="blog-header py-3">
             <div className="row flex-nowrap justify-content-between align-items-center">
                 <div className="col-4 pt-1">
-                    <a className="text-muted" href="subs">
-                        Subscribe
-                    </a>
+                    <p className="text-muted mx-auto"><b>
+                        {
+                            topic ? `${topic} ` : ' ' 
+                        }
+                    </b>News</p>
                 </div>
                 <div className="col-4 text-center">
                     <a className="blog-header-logo text-dark" href="/">
-                        The News App
+                        Nation Wants to Know
                     </a>
                 </div>
                 <div className="col-4 d-flex justify-content-end align-items-center">

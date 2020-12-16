@@ -23,7 +23,7 @@ export default function Header( { topic, onTopicSelection } ) {
                     </b>News</p>
                 </div>
                 <div className="col-4 text-center">
-                    <a className="blog-header-logo text-dark" href="/">
+                    <a className="blog-header-logo text-dark" href="/react-news-app">
                         Nation Wants to Know
                     </a>
                 </div>

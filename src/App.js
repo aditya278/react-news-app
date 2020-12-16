@@ -74,7 +74,7 @@ function App() {
         <hr />
         <div className="card">
           <div class="card-footer bg-light text-muted row flex-nowrap justify-content-between align-items-center">
-            <div>© <a href="www.github.com/aditya278">Aditya Shukla</a></div>
+            <div>© <a href="https://github.com/aditya278/">Aditya Shukla</a></div>
             <div>Source: <a href="https://newsapi.org/">News API</a></div>
           </div>
         </div>

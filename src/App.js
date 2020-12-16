@@ -60,7 +60,7 @@ function App() {
   return (
     <Router>
       <div className="container">
-        <Header />
+        <Header onTopicSelection = {onTopicSelection} />
         <Navbar onTopicSelection = {onTopicSelection} />
         <hr />
         <Switch>

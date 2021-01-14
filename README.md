@@ -12,6 +12,10 @@ This app fetches your IP address and displays the News from your location. The N
 
 The Application is deployed [Here](http://aditya-news-app.herokuapp.com/)
 
+![Loading](https://user-images.githubusercontent.com/25431607/104566285-6f17f180-5673-11eb-811f-1514d1605518.png)
+![Home](https://user-images.githubusercontent.com/25431607/104566402-8e168380-5673-11eb-8120-3d224e8dd86c.png)
+
+
 ## Getting Started:
 
 1. Create an account at [Mediastack](https://mediastack.com/quickstart) and get the API access key.

@@ -26,12 +26,12 @@ function App() {
 
         if (countryCd !== "") {
           const url =
-            "http://newsapi.org/v2/top-headlines?" +
-            `country=${countryCd}&` +
-            "apiKey=a48cfcb6549847c285555f8d280213b9";
+            "http://api.mediastack.com/v1/news?" +
+            `access_key=${process.env.REACT_APP_API_ACCESS_KEY}&` +
+            `countries=${countryCd}&languages=en`;
           const res2 = await axios.get(url);
 
-          setArticles(res2.data.articles);
+          setArticles(res2.data.data);
           setLoading(false);
         }
       } catch (err) {
@@ -47,12 +47,13 @@ function App() {
       setLoading(true);
       setTopic(newTopic);
       const url =
-        "http://newsapi.org/v2/everything?" + 
-        `q=${newTopic}&` + 
-        "sortBy=publishedAt&apiKey=a48cfcb6549847c285555f8d280213b9";
+      "http://api.mediastack.com/v1/news?" +
+      `access_key=${process.env.REACT_APP_API_ACCESS_KEY}&` +
+      `countries=${countryCd}&languages=en&` +
+      `keywords=${newTopic}`;
       const res2 = await axios.get(url);
 
-      setArticles(res2.data.articles);
+      setArticles(res2.data.data);
       setLoading(false);
     }
     catch(err) {
@@ -68,14 +69,14 @@ function App() {
         <hr />
         <Switch>
           <Route exact path="/">
-            <HeadlinePosts articles={articles} loading={loading} />
+            <HeadlinePosts articles={articles} loading={loading} topic={topic} />
           </Route>
         </Switch>
         <hr />
         <div className="card">
           <div class="card-footer bg-light text-muted row flex-nowrap justify-content-between align-items-center">
             <div>© <a href="https://github.com/aditya278/">Aditya Shukla</a></div>
-            <div>Source: <a href="https://newsapi.org/">News API</a></div>
+            <div>Source: <a href="https://mediastack.com/quickstart">Mediastack API</a></div>
           </div>
         </div>
       </div>

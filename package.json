@@ -1,5 +1,5 @@
 {
-  "homepage" : "http://aditya278.github.io/react-news-app",
+  "homepage": "http://aditya278.github.io/react-news-app",
   "name": "react-news-app",
   "version": "0.1.0",
   "private": true,
@@ -8,6 +8,7 @@
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.2.2",
     "axios": "^0.21.0",
+    "dotenv": "^8.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
